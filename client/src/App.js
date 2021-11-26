@@ -1,8 +1,12 @@
+import Navbar from "./components/Navbar";
+import "./app.css";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div>
-      dfvgbn
+      <Navbar />
+      <Home />
     </div>
   )
 }

@@ -1,18 +1,24 @@
 import { Link } from "react-router-dom"
 
 const Navbar = ({ user }) => {
+
+    const logout = () => {
+        window.open("http://localhost:5000/auth/logout", "_self");
+    }
+
+
     return (
         <div className="navbar">
             <span className="logo"><Link className="link" to="/">Passport.js test</Link></span>
             {user ? (
                 < ul className="list">
                     <li className="listItem">
-                        <img src="https://images.unsplash.com/photo-1485875437342-9b39470b3d95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d29tZW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="" className="avatar" />
+                        <img src={user.photos[0].value} alt="" className="avatar" />
                     </li>
                     <li className="listItem">
-                        Ivan Ivanov
+                        {user.displayName}
                     </li>
-                    <li className="listItem">Logout</li>
+                    <li className="listItem" onClick={logout}>Logout</li>
                 </ul>
             ) : (
                 <Link className="link" to="/login">Login</Link>
